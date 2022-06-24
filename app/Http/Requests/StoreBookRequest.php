@@ -28,12 +28,12 @@ class StoreBookRequest extends FormRequest
     public function rules()
     {
         return [
-//            'category_id' => 'required',
-//            'author_id' => 'required',
-//            'book_title' => 'required',
-//            'book_summary' => 'required',
-//            'book_price' => 'required',
-//            'book_cover_photo' => 'required',
+            'category_id' => 'required',
+            'author_id' => 'required',
+            'book_title' => 'required',
+            'book_summary' => 'required',
+            'book_price' => 'required',
+            'book_cover_photo' => 'required',
         ];
     }
 

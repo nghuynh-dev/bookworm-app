@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Resources\AuthorResource;
 use App\Models\Author;
 use App\Http\Controllers\Api\BookController;
-use App\Http\Controllers\Api\DiscountController;
 
 use App\Http\Controllers\Api\FilterController;
 
@@ -24,19 +23,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::prefix('books')->group(function () {
+    Route::get('/',[BookController::class,'index']);
+    Route::get('/sale', [BookController::class,'getBooksSale']);
+    Route::get('/recommend',[BookController::class,'getBooksRecommend']);
+    Route::get('/popular',[BookController::class,'getBooksPopular']);
+    Route::get('/{id}',[BookController::class,'getBookDetail']);
+});
 
-//http://127.0.0.1:8000/api/books
-Route::apiResource('/books', BookController::class);
-//http://127.0.0.1:8000/api/sale
-Route::get('/sale',[BookController::class,'onSale']);
-//http://127.0.0.1:8000/api/recommend
-Route::get('/recommend',[BookController::class,'onRecommend']);
-//http://127.0.0.1:8000/api/popular
-Route::get('/popular',[BookController::class,'onPopular']);
-
-
-Route::resource('discounts', DiscountController::class );
-
-Route::resource('/filters', FilterController::class);
 
 
