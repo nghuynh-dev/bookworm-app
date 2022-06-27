@@ -2,13 +2,10 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Discount;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class BookCollection extends ResourceCollection
 {
-    public $collects = Discount::class;
-
     /**
      * Transform the resource collection into an array.
      *

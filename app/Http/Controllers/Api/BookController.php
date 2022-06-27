@@ -41,4 +41,7 @@ class BookController extends Controller
     public function getBookDetail($id){
         return $this->bookRepository->getBookDetail($id);
     }
+    public function getBookCondition(Request $request){
+        return $this->bookRepository->getBookCondition($request);
+    }
 }

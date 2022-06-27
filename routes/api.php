@@ -28,7 +28,8 @@ Route::prefix('books')->group(function () {
     Route::get('/sale', [BookController::class,'getBooksSale']);
     Route::get('/recommend',[BookController::class,'getBooksRecommend']);
     Route::get('/popular',[BookController::class,'getBooksPopular']);
-    Route::get('/{id}',[BookController::class,'getBookDetail']);
+    Route::get('/detail/{id}',[BookController::class,'getBookDetail']);
+    Route::get('/condition',[BookController::class,'getBookCondition']);
 });
 
 
