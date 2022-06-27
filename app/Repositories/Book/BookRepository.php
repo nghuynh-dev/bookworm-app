@@ -67,9 +67,11 @@ class BookRepository
 //        dd($books);
 //         = Book::featured();
         $books_query = Book::default();
+        //http://127.0.0.1:8000/api/books/condition?category=1
         if($request->category){
             $books_query->where('category_id', $request->category)->orderBy("book.id");
         }
+        //http://127.0.0.1:8000/api/books/condition?author=1
         if($request->author){
             $books_query->where('author_id', $request->author)->orderBy("book.id");
         }
@@ -81,10 +83,32 @@ class BookRepository
 //                ->whereBetween('avg_star',[$request->star, $request->star +1] )
                 ->orderBy("book.id");
         }
-        $books= $books_query
-//            ->orderBy( "final_price", 'ASC')
-            ->get();
 
+//        if($request->sortBy && in_array($request->sortBy,['category_id','author_id','star'])){
+//            $sortBy=$request->sortBy;
+//        }else{
+//            $sortBy='category_id';
+//        }
+//        if($request->sortOrder && in_array($request->sortOrder,['asc','desc'])){
+//            $sortOrder=$request->sortOrder;
+//        }else{
+//            $sortOrder='desc';
+//        }
+        // paginate http://127.0.0.1:8000/api/books/condition?author=1&paginate=2
+        if($request->perPage){
+            $perPage=$request->perPage;
+        }else{
+            $perPage=5;
+        }
+        if($request->paginate){
+            $books= $books_query->paginate($perPage);
+        }else{
+            $books= $books_query->get();
+        }
+
+        $books= $books_query
+//            ->orderBy( $sortBy,$sortOrder)
+            ->get();
             return response()->json([
             "message" => "condition book",
             "data" => $books
