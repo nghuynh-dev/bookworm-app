@@ -29,7 +29,7 @@ Route::prefix('books')->group(function () {
     Route::get('/recommend',[BookController::class,'getBooksRecommend']);
     Route::get('/popular',[BookController::class,'getBooksPopular']);
     Route::get('/detail/{id}',[BookController::class,'getBookDetail']);
-    Route::get('/condition',[BookController::class,'getBookCondition']);
+    Route::get('/filter',[BookController::class,'getBookFilter']);
 });
 
 
