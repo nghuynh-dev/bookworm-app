@@ -42,8 +42,8 @@ class BookResource extends JsonResource
             'category' => new CategoryResource($this->category),
             'author' => new AuthorResource($this->author),
             'discount_price' => $this->discount_price,
-//            'date_start' => $this->discount_start_date,
-//            'date_end' => $this->discount_end_date,
+            'date_start' => $this->discount_start_date,
+            'date_end' => $this->discount_end_date,
         ];
 
     }

@@ -10,41 +10,37 @@ use Illuminate\Http\Request;
 
 class BookRepository
 {
-    public function model()
-    {
-    }
     public function getBooksAll(){
-        $books = Book::sale()->get();
+        $books = Book::detail()->paginate(10);
+        $books = BookResource::collection($books);
+
         return response()->json([
-            "message" => "all books sale",
+            "message" => "all books",
             "data" => $books
         ],200);
     }
     public function getBooksSale(){
-        $books = Book::sale()
-            ->orderBy("sub_price")
-            ->limit(10)->get();
+        $books = Book::detail()->sale()->limit(10)->get();
+        $books = BookResource::collection($books);
+
         return response()->json([
             "message" => "10 books sale",
             "data" => $books
         ],200);
     }
     public function getBooksRecommend(){
-        $books = Book::recommend()
-            ->orderBy("avg_star", 'DESC')
-            ->orderBy( "final_price", 'ASC')
-            ->limit(8)->get();
+        $books = Book::detail()->recommend()->limit(8)->get();
+        $books = BookResource::collection($books);
+
         return response()->json([
             "message" => "8 books recommend",
             "data" => $books
         ],200);
     }
     public function getBooksPopular(){
-        $books = Book::popular()
-            ->orderBy("total_reviews", 'DESC')
-            ->orderBy( "final_price", 'ASC')
-            ->limit(8)->get();
-//        dd($books);
+        $books = Book::detail()->popular()->limit(8)->get();
+        $books = BookResource::collection($books);
+
         return response()->json([
             "message" => "8 books popular",
             "data" => $books
@@ -52,7 +48,7 @@ class BookRepository
     }
     public function getBookDetail($id){
         $book = Book::detail()->findOrFail($id);
-//        $book = new BookResource($book);
+        $book = new BookResource($book);
         return response()->json([
             "message" => "Detail book",
             "data" => $book
