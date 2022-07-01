@@ -107,16 +107,13 @@ class Book extends Model
                     ELSE book_price
                     END ASC');
     }
-    public function filterCategory($query, $value)
-    {
+    public function filterCategory($query, $value){
         return $query->where('book.category_id', $value);
     }
-    public function filterAuthor($query, $value)
-    {
+    public function filterAuthor($query, $value){
         return $query->where('book.author_id', $value);
     }
-    public function filterStar($query, $value)
-    {
+    public function filterStar($query, $value){
         if (is_numeric($value)) {
             return $query
                 ->havingRaw("COALESCE(AVG(CAST(rating_start as INT)), 0) >= ?", [$value]);

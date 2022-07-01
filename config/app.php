@@ -14,7 +14,8 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-
+    'perPage' =>env('PER_PAGE',1),
+    'perPage8' =>env('PER_PAGE_8',1),
     /*
     |--------------------------------------------------------------------------
     | Application Environment

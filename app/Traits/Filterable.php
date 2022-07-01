@@ -37,11 +37,11 @@ trait Filterable {
 //
 //        return $query;
 //    }
-    public function scopeFilter($query, $request)
+    public function scopeFilter($query, $param)
     {
-        foreach ($request as $key => $value) {
-            $method = 'filter' . Str::studly($key);
-            $methodSort = 'scope' . Str::studly($key);
+        foreach ($param as $field => $value) {
+            $method = 'filter' . Str::studly($field);
+            $methodSort = 'scope' . Str::studly($field);
             if ($value === '') {
                 continue;
             }
@@ -49,12 +49,12 @@ trait Filterable {
             if (empty($this->filterable) || !is_array($this->filterable)) {
                 continue;
             }
-            if (in_array($key, $this->filterable)) {
+            if (in_array($field, $this->filterable)) {
                 if (method_exists($this, $method)) {
                     $this->{$method}($query, $value);
                 }
                 if (method_exists($this, $methodSort)) {
-                    $this->{$methodSort}($query, $key);
+                    $this->{$methodSort}($query, $param);
                 }
                 continue;
             }
