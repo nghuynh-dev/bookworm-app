@@ -1,0 +1,79 @@
+import React from 'react';
+import { Accordion,Card,Dropdown } from 'react-bootstrap';
+import {useSelector} from "react-redux";
+import {Link} from "react-router-dom";
+
+export default function SidebarComponent(){
+    const authors = useSelector(state => state.shopReducer.authorReducer)
+    const categories = useSelector(state => state.shopReducer.categoryReducer)
+    const stars = useSelector(state => state.shopReducer.starReducer)
+    return (
+        <div className="col-lg-2 col-md-3 col-sm-12 px-0 filter-left-sidebar">
+            <div className="row mt-4 mb-3">
+                <div className="col-lg-12">
+                    <b>Filter By</b>
+                </div>
+            </div>
+            <div className="row filter-data-sidebar">
+                <div className="col-lg-12">
+                    <Accordion defaultActiveKey="0" className="mb-4">
+                        <Card>
+                            <Accordion.Toggle as={Card.Header} eventKey="0">
+                                <h4>Category</h4>
+                            </Accordion.Toggle>
+                            <Accordion.Collapse eventKey="0">
+                                <Card.Body className="px-0 my-1">
+                                    {categories.map((item, index) => {
+                                        return(
+                                            <Dropdown.Item eventKey={index} key={item.id}>
+                                                {item.category_name}
+                                            </Dropdown.Item>
+                                        )
+                                    })}
+                                </Card.Body>
+                            </Accordion.Collapse>
+                        </Card>
+                    </Accordion>
+                    <Accordion defaultActiveKey="1" className="mb-4">
+                        <Card>
+                            <Accordion.Toggle as={Card.Header} eventKey="1">
+                                <h4>Author</h4>
+                            </Accordion.Toggle>
+
+                            <Accordion.Collapse eventKey="1">
+                                <Card.Body className="px-0 my-1">
+                                    {authors.map((item, index) => {
+                                        return(
+                                            <Dropdown.Item key={index}>
+                                                {item.author_name}
+                                            </Dropdown.Item>
+                                        )
+                                    })}
+                                </Card.Body>
+                            </Accordion.Collapse>
+                        </Card>
+                    </Accordion>
+                    <Accordion defaultActiveKey="2" className="mb-4">
+                        <Card>
+                            <Accordion.Toggle as={Card.Header} eventKey="2">
+                                <h4>Rating Review</h4>
+                            </Accordion.Toggle>
+
+                            <Accordion.Collapse eventKey="2">
+                                <Card.Body className="px-0 my-1">
+                                    {stars.map((item, index) => {
+                                        return(
+                                            <Dropdown.Item key={index}>
+                                                {item}
+                                            </Dropdown.Item>
+                                        )
+                                    })}
+                                </Card.Body>
+                            </Accordion.Collapse>
+                        </Card>
+                    </Accordion>
+                </div>
+            </div>
+        </div>
+    )
+}
