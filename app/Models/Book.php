@@ -14,6 +14,7 @@ class Book extends Model
     use Filterable;
 
     protected $filterable = [
+        'sort',
         'category',
         'author',
         'star'
@@ -62,7 +63,7 @@ class Book extends Model
             );
     }
     //sale by sub price
-    public function scopeSale($query){
+    public function sortSale($query){
         return $query
             ->orderByRaw('CASE
                     WHEN (discount_end_date IS NULL AND DATE(NOW()) >= discount_start_date) THEN book_price - discount_price
@@ -71,7 +72,7 @@ class Book extends Model
                     END DESC');
     }
     // average rating star and lowest final price
-    public function scopeRecommend($query){
+    public function sortRecommend($query){
         return $query
             ->havingRaw("COALESCE(AVG(CAST(rating_start as INT)), 0) >= 0")
             ->orderByRaw("COALESCE(AVG(cast(rating_start as INT)), 0) desc")
@@ -82,7 +83,7 @@ class Book extends Model
                     END ASC');
     }
     //most review and lowest final price
-    public function scopePopular($query){
+    public function sortPopular($query){
         return $query
             ->orderByRaw('COUNT(CAST(review.rating_start as INT)) DESC')
             ->orderByRaw('CASE
@@ -113,6 +114,7 @@ class Book extends Model
     public function filterAuthor($query, $value){
         return $query->where('book.author_id', $value);
     }
+    //bug
     public function filterStar($query, $value){
         if (is_numeric($value)) {
             return $query

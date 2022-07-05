@@ -13,30 +13,29 @@ trait Filterable {
      * @return query builder.
      */
 
-//    public function scopeSort($query, $param)
-//    {
-//
-//        foreach ($param as $field => $value) {
-//            $method = 'sort' . Str::studly($value);
-//
-//            if ($value === '') {
-//                continue;
-//            }
-//
-//            if (empty($this->filterable) || !is_array($this->filterable)) {
-//                continue;
-//            }
-//
-//            if (in_array($field, $this->filterable)) {
-//                if (method_exists($this, $method)) {
-//                    $this->{$method}($query);
-//                }
-//                continue;
-//            }
-//        }
-//
-//        return $query;
-//    }
+    public function scopeSort($query, $param)
+    {
+
+        foreach ($param as $field => $value) {
+            $method = 'sort' . Str::studly($value);
+
+            if ($value === '') {
+                continue;
+            }
+
+            if (empty($this->filterable) || !is_array($this->filterable)) {
+                continue;
+            }
+
+            if (in_array($field, $this->filterable)) {
+                if (method_exists($this, $method)) {
+                    $this->{$method}($query);
+                }
+                continue;
+            }
+        }
+        return $query;
+    }
     public function scopeFilter($query, $param)
     {
         foreach ($param as $field => $value) {
