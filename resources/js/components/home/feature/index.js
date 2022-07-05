@@ -1,19 +1,31 @@
 import React from "react";
-import './style.scss';
-import {ToggleButton, ToggleButtonGroup} from "react-bootstrap";
-import Bookcard from "../../bookcard";
+import {Carousel, ToggleButton, ToggleButtonGroup} from "react-bootstrap";
+import {useSelector} from "react-redux";
+import BookCardComponent from "../../bookcard";
 
-export default function Feature(){
+export default function FeatureComponent(props){
+    const {handleOnChange} = props
+
+    const featureBook = useSelector(state => state.bookReducer.homeFeatureList);
+    console.log('ArrBook',featureBook)
+    const dataBindingGrid = () => {
+        return(
+            <div className="row" >
+                <BookCardComponent attribute={featureBook}/>
+            </div>
+        )
+
+    }
     return(
-        <div className='wrapper'>
-            <div className='container-fluid mt-4'>
+        <div className="wrapper">
+            <div className="container-fluid select-home-bar mb-4">
                 <div className="row">
                     <div className="col-lg-12">
                         <h3 className="text-center mt-5">Featured Books</h3>
                     </div>
                     <div className="col-lg-12">
                         <div className="text-center">
-                            <ToggleButtonGroup type="radio" name="options">
+                            <ToggleButtonGroup type="radio" name="options" defaultValue={'recommend'} onChange={(e) => handleOnChange(e)}>
                                 <ToggleButton id="tbg-radio-1" value='recommend' >
                                     Recommended
                                 </ToggleButton>
@@ -24,22 +36,12 @@ export default function Feature(){
                         </div>
                     </div>
                 </div>
-                <div className="product-home-list mx-5 mt-5">
-                    <div className="book-items mx-6 mt-4">
-                        <Bookcard />
-                        <Bookcard />
-                        <Bookcard />
-                        <Bookcard />
-                    </div>
-                    <div className="book-items mx-6 mt-4">
-                        <Bookcard />
-                        <Bookcard />
-                        <Bookcard />
-                        <Bookcard />
-                    </div>
+            </div>
+            <div className="product-home-list mx-5">
+                <div className="mx-6 mt-4">
+                    {dataBindingGrid()}
                 </div>
             </div>
-
         </div>
     );
 }

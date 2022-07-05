@@ -1,3 +1,52 @@
 *{
     //border: solid 1px;
+    box-sizing: border-box;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+.card-img-top {
+    width: 100%;
+    height: 28vw;
+    object-fit: cover;
+}
+@media only screen and (max-width: 650px) {
+    .card-img-top {
+        height: 22rem !important;
+    }
+}
+@media only screen and (max-width: 430px) {
+    .card-img-top {
+        height: 14rem !important;
+    }
+}
+
+/* WRAPPER - ABOUT */
+/* -------------------------------------------------------------------- */
+
+.wrapper-about {
+    .main-title-information {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+    }
+    .main-title-information-1 {
+        font-size: 1.5rem;
+    }
+    /* -- About - Introduction */
+    .about-introduction .title-about-introduction {
+        font-size: 1.5rem;
+    }
+    /* -- About - Story, About - Vision */
+    .about-story, .about-vision {
+        font-size: 1.5rem;
+    }
 }

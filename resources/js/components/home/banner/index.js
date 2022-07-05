@@ -1,47 +1,82 @@
-import React, {useEffect} from 'react';
-import {Carousel} from "reactstrap";
-import './style.scss';
-import BookCard from "../../bookcard";
-import {connect} from "react-redux";
+import React from 'react';
+import { useSelector} from "react-redux";
+import {chunk} from "lodash";
+import Slider from "react-slick";
+import {Carousel} from 'react-bootstrap';
+import BookCardComponent from "../../bookcard";
 
+export default function BannerComponent() {
+    const books = useSelector(state => state.bookReducer.homeBannerList);
+    console.log('1',books)
 
+    const state = {
+        index: 0,
+        nextIcon: <i className="fa fa-caret-right"></i>,
+        prevIcon: <i className="fa fa-caret-left"></i>,
+        bannerBook: []
+    }
 
-
-function Banner(props) {
-    const bannerList = props.list
-    useEffect(() => console.log(props.list),[])
-    return (
-        <div className="container-fluid banner mt-4">
-            <div className="mx-5 my-3">
-                <div className="banner_title row">
-                    <div className="col-auto mr-auto my-auto">
-                        <h4>On Sale</h4>
-                    </div>
-                    <div className="col-auto my-auto">
-                        <button type="button" className="btn btn-secondary btn-view-all">
-                            View All
-                            <i className="fa fa-caret-right"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div className="mx-5 wrap-card row">
-                <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-                    <div className="carousel-inner">
-                        <div className="carousel-item active">
-                            <i className="btn-carousel fa fa-caret-left"></i>
-                            <BookCard/>
-                            <BookCard/>
-                            <BookCard/>
-                            <BookCard/>
-                            <i className="btn-carousel fa fa-caret-right"></i>
+    const dataBindingGrid = () => {
+        const rows = chunk(books, 4);
+        return rows.map((item,index) =>{
+            console.log(item)
+            return (
+                <Carousel.Item key = {index}>
+                    <div className="mx-6 mt-4">
+                        <div className="row">
+                            <BookCardComponent attribute={item}/>
                         </div>
                     </div>
-                </div>
+                </Carousel.Item>
+            );
+        })
+    }
+    return (
+        <div className="container-fluid banner mt-4">
+            <div className="mx-5 my-3 banner_title">
+                        <h4>On Sale</h4>
+                        <button type="button" className="btn btn-secondary btn-view-all">
+                            View All
+                        </button>
+            </div>
+            <div>
+                <Carousel className='mx-5'
+                          nextIcon={state.nextIcon}
+                          prevIcon={state.prevIcon}
+                          index={state.index}>
+                    {dataBindingGrid()}
+                </Carousel>
             </div>
         </div>
     );
 }
-
-
-export default Banner
+// function Banner(){
+//     const books = useSelector(state => state.bookReducer.homeBannerList);
+//     console.log('1',books)
+//
+//     const getBook = books.map((item, index) => {
+//         return();
+//     })
+//
+//     const settings = {
+//         slidesToShow: 3,
+//         slidesToScroll: 1,
+//         autoplay: true,
+//         autoplaySpeed: 2000,
+//     };
+//     return(
+//         <div className="container-fluid banner mt-4">
+//             <div className="mx-5 my-3 banner_title">
+//                 <h4>On Sale</h4>
+//                 <button type="button" className="btn btn-secondary btn-view-all">
+//                     View All
+//                 </button>
+//             </div>
+//             <div>
+//                 <Slider {settings}>
+//                     <div></div>
+//                 </Slider>
+//             </div>
+//         </div>
+//     );
+// }

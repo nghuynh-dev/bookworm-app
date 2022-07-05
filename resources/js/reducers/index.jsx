@@ -1,18 +1,12 @@
 import { combineReducers } from 'redux'
 import bookReducer from './book.reduce'
-
+import shopReducer from './shop.reducer'
 
 const appReducer = combineReducers({
-    bookReducer
+    bookReducer,shopReducer
 })
 // cap nhat state tron store
-// state luc nay la init value
 const rootReducer = (state, action) => {
-    switch (action.type) {
-        // case LOGOUT:
-        //     return appReducer(undefined, action)
-        default:
-            return appReducer(state, action)
-    }
+    return appReducer(state, action)
 }
 export default rootReducer

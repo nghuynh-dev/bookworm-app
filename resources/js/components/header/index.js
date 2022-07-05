@@ -1,38 +1,39 @@
 import React from 'react';
-import './style.scss';
 import {Navbar, Nav} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-
-function Header() {
+export default function HeaderComponent() {
     return (
         <header className="my-0">
-            <Navbar bg={'light'}>
-                <Navbar.Brand>
-                    <img src={'./assets/bookworm_icon.svg'}/>
-                    <b>BOOKWORM</b>
+            <Navbar collapseOnSelect expand="md" bg="light">
+                <Navbar.Brand href="#/">
+                    <img src="/assets/bookworm_icon.svg" width="32" height="32" className="d-inline-block align-top my-auto" />
+                    <b className="ml-2">BOOKWORM</b>
                 </Navbar.Brand>
-                <Nav>
-                    <Nav.Link className={'active'}>
-                        Home
-                    </Nav.Link>
-                    <Nav.Link>
-                        Shop
-                    </Nav.Link>
-                    <Nav.Link>
-                        About
-                    </Nav.Link>
-                    <Nav.Link>
-                        Cart
-                        <span>(0)</span>
-                    </Nav.Link>
-                    <Nav.Link>
-                        Sign In
-                    </Nav.Link>
-                </Nav>
-
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="ml-auto"
+                         // activeKey={this.state.pathname}
+                    >
+                        <Nav.Link eventKey={'/'} as={Link} to="/">
+                            Home
+                        </Nav.Link>
+                        <Nav.Link
+                            eventKey={'/shop'} as={Link} to='/shop'
+                            // eventKey={'/product/filter'} as={Link} to="/product/filter?show=20&sort=sale" onClick={() => this.props.resetFilterPage()} replace
+                        >
+                            Shop
+                        </Nav.Link>
+                        <Nav.Link eventKey={'/about'} as={Link} to="/about">
+                            About
+                        </Nav.Link>
+                        <Nav.Link eventKey={'/cart'} as={Link} to="/cart">
+                            {/*Cart <b>(<span>{this.props.cartAmount}</span>)</b>*/}
+                            Cart
+                        </Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
             </Navbar>
         </header>
     );
 }
-
-export default Header;

@@ -1,32 +1,26 @@
-import Banner from "../components/home/banner";
-import Feature from "../components/home/feature";
-import { getBookBanner } from "../actions";
-import { connect } from 'react-redux';
-import {useEffect} from "react";
+import { getBookBanner, getBookPopular, getBookRecommend } from "../actions";
+import { useDispatch } from 'react-redux';
+import { useEffect } from "react";
+import BannerComponent from "../components/home/banner";
+import FeatureComponent from "../components/home/feature";
 
-
-function Home(props){
-    const getBanner = props.books;
+export default function Home() {
+    const dispatch = useDispatch();
     useEffect(() => {
-        const content = getBanner()
-        console.log(content)
-        // getBanner();
-    } ,[])
-    useEffect(() => console.log(props.bannerList),[props.bannerList])
-    return(
+        dispatch(getBookBanner());
+        dispatch(getBookRecommend());
+    }, [])
+
+    const handleOnChangeButton = (e) => {
+        if (e === 'recommend') dispatch(getBookRecommend());
+        else dispatch(getBookPopular());
+    }
+    return (
         <>
-            <Banner list={props.bannerList}/>
-            <Feature />
+            <BannerComponent />
+            <FeatureComponent handleOnChange={(e) => handleOnChangeButton(e)} />
         </>
     );
 }
-const mapStateToProps = (state) => ({
-    bannerList: state.homeBannerList,
-})
-const mapDispatchToProps = (dispatch) => {
-    return {
-        books: () => dispatch(getBookBanner()),
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+
