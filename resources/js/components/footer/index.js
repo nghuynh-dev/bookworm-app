@@ -1,7 +1,7 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function FooterComponent(){
-    return(
+export default function FooterComponent() {
+    return (
         <footer className="mt-5">
             <nav className="navbar navbar-light bg-light">
                 <Link className="navbar-brand" to="#">

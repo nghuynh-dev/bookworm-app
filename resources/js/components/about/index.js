@@ -1,4 +1,4 @@
-export default function AboutComponent (){
+export default function AboutComponent() {
     return (
         <div className="wrapper-about">
             <div className="main-title mx-5 mb-4">

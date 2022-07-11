@@ -1,6 +1,6 @@
 import AboutComponent from "../components/about";
 
-function About(){
+function About() {
     return (
         <>
             <AboutComponent />

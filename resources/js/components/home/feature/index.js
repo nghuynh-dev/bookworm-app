@@ -1,22 +1,20 @@
 import React from "react";
-import {Carousel, ToggleButton, ToggleButtonGroup} from "react-bootstrap";
-import {useSelector} from "react-redux";
+import { ToggleButton, ToggleButtonGroup } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import BookCardComponent from "../../bookcard";
 
-export default function FeatureComponent(props){
-    const {handleOnChange} = props
+export default function FeatureComponent(props) {
+    const { handleOnChange } = props
 
     const featureBook = useSelector(state => state.bookReducer.homeFeatureList);
-    console.log('ArrBook',featureBook)
     const dataBindingGrid = () => {
-        return(
+        return (
             <div className="row" >
-                <BookCardComponent attribute={featureBook}/>
+                <BookCardComponent attribute={featureBook} />
             </div>
         )
-
     }
-    return(
+    return (
         <div className="wrapper">
             <div className="container-fluid select-home-bar mb-4">
                 <div className="row">

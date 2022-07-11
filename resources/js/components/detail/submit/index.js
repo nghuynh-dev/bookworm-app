@@ -1,6 +1,6 @@
 import { Alert } from 'react-bootstrap';
 
-export default function SubmitComponent(){
+export default function SubmitComponent() {
 
     let errorTitleElement;
     let errorDetailElement;
@@ -9,15 +9,15 @@ export default function SubmitComponent(){
     let seconds;
     let showError;
     let errorSever;
-    return(
+    return (
         <div className="col-lg-4 col-md-4 col-sm-12">
             <div className="write-a-review py-4">
                 <div className="card">
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item ml-2">
-                                <span className="h4">
-                                    <b>Write a review</b>
-                                </span>
+                            <span className="h4">
+                                <b>Write a review</b>
+                            </span>
                         </li>
                         <li className="list-group-item">
                             <div>
@@ -25,10 +25,10 @@ export default function SubmitComponent(){
                                     <div className="form-group">
                                         <label htmlFor="reviewTitle">Add a title</label>
                                         <input type="text"
-                                               className="form-control"
-                                               value={review_title}
-                                               id="reviewTitle"
-                                               onChange={this.handleChangeReviewTitle.bind(this)}/>
+                                            className="form-control"
+                                            value={review_title}
+                                            id="reviewTitle"
+                                            onChange={this.handleChangeReviewTitle.bind(this)} />
                                         {errorTitleElement}
                                     </div>
                                     <div className="form-group">
@@ -36,18 +36,18 @@ export default function SubmitComponent(){
                                             Details please! Your review helps other shoppers
                                         </label>
                                         <textarea className="form-control"
-                                                  value={review_details}
-                                                  id="detailBook"
-                                                  rows="3"
-                                                  onChange={this.handleChangeReviewDetail.bind(this)}></textarea>
+                                            value={review_details}
+                                            id="detailBook"
+                                            rows="3"
+                                            onChange={this.handleChangeReviewDetail.bind(this)}></textarea>
                                         {errorDetailElement}
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="ratingStar">Select a rating star</label>
                                         <select className="custom-select my-1 mr-sm-2"
-                                                id="ratingStar"
-                                                value={rating_start}
-                                                onChange={this.handleSelectStar.bind(this)}>
+                                            id="ratingStar"
+                                            value={rating_start}
+                                            onChange={this.handleSelectStar.bind(this)}>
                                             <option value="none">None</option>
                                             <option value="1">1 Star</option>
                                             <option value="2">2 Star</option>
@@ -69,7 +69,7 @@ export default function SubmitComponent(){
                 </div>
             </div>
             {showAlert ? (
-                <Alert variant="success" onClose={() => this.setState({showAlert:false})} dismissible>
+                <Alert variant="success" onClose={() => this.setState({ showAlert: false })} dismissible>
                     <Alert.Heading>Added new review successfully</Alert.Heading>
                     <p>
                         Reload review list of product after {seconds} seconds
@@ -77,7 +77,7 @@ export default function SubmitComponent(){
                 </Alert>
             ) : (<></>)}
             {showError ? (
-                <Alert variant="danger" onClose={() => this.setState({showError:false})} dismissible>
+                <Alert variant="danger" onClose={() => this.setState({ showError: false })} dismissible>
                     <Alert.Heading>Error</Alert.Heading>
                     <p>
                         {errorSever}

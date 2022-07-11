@@ -16,6 +16,7 @@ class BookService {
         const response = await Repository.get(endpoint)
         return response
     }
+
 }
 export default new BookService()
 

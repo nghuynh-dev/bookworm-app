@@ -1,7 +1,7 @@
 import { DropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-export default function ReviewComponent(){
+export default function ReviewComponent() {
     return (
         // Review List
         <div className="row review-list">
@@ -48,14 +48,14 @@ export default function ReviewComponent(){
                                     <Dropdown.Item eventKey="none" as={Link} to={{
                                         pathname: '/detail/' + this.props.idBook
                                     }}
-                                                   onClick={() => this.setState({
-                                                       sortTitle : 'Default',
-                                                       showTitle : 'Show 5',
-                                                       starTitle : null,
-                                                       sort : 'none',
-                                                       show : 5,
-                                                       star : 0
-                                                   })} replace >Default</Dropdown.Item>
+                                        onClick={() => this.setState({
+                                            sortTitle: 'Default',
+                                            showTitle: 'Show 5',
+                                            starTitle: null,
+                                            sort: 'none',
+                                            show: 5,
+                                            star: 0
+                                        })} replace >Default</Dropdown.Item>
                                     <Dropdown.Item eventKey="desc" as={Link} to={{
                                         pathname: '/detail/' + this.props.idBook,
                                         search: qs.stringify(this.handleQuerySearch({
@@ -89,50 +89,50 @@ export default function ReviewComponent(){
                                             show: 5
                                         }))
                                     }}
-                                                   onClick={() => this.setState({
-                                                       showTitle: `Show 5`,
-                                                       show: 5
-                                                   })} replace >Show 5</Dropdown.Item>
+                                        onClick={() => this.setState({
+                                            showTitle: `Show 5`,
+                                            show: 5
+                                        })} replace >Show 5</Dropdown.Item>
                                     <Dropdown.Item eventKey="10" as={Link} to={{
                                         pathname: '/detail/' + this.props.idBook,
                                         search: qs.stringify(this.handleQuerySearch({
                                             show: 10
                                         }))
                                     }}
-                                                   onClick={() => this.setState({
-                                                       showTitle: `Show 10`,
-                                                       show: 10
-                                                   })} replace >Show 10</Dropdown.Item>
+                                        onClick={() => this.setState({
+                                            showTitle: `Show 10`,
+                                            show: 10
+                                        })} replace >Show 10</Dropdown.Item>
                                     <Dropdown.Item eventKey="15" as={Link} to={{
                                         pathname: '/detail/' + this.props.idBook,
                                         search: qs.stringify(this.handleQuerySearch({
                                             show: 15
                                         }))
                                     }}
-                                                   onClick={() => this.setState({
-                                                       showTitle: `Show 15`,
-                                                       show: 15
-                                                   })} replace >Show 15</Dropdown.Item>
+                                        onClick={() => this.setState({
+                                            showTitle: `Show 15`,
+                                            show: 15
+                                        })} replace >Show 15</Dropdown.Item>
                                     <Dropdown.Item eventKey="20" as={Link} to={{
                                         pathname: '/detail/' + this.props.idBook,
                                         search: qs.stringify(this.handleQuerySearch({
                                             show: 20
                                         }))
                                     }}
-                                                   onClick={() => this.setState({
-                                                       showTitle: `Show 20`,
-                                                       show: 20
-                                                   })} replace >Show 20</Dropdown.Item>
+                                        onClick={() => this.setState({
+                                            showTitle: `Show 20`,
+                                            show: 20
+                                        })} replace >Show 20</Dropdown.Item>
                                     <Dropdown.Item eventKey="25" as={Link} to={{
                                         pathname: '/detail/' + this.props.idBook,
                                         search: qs.stringify(this.handleQuerySearch({
                                             show: 25
                                         }))
                                     }}
-                                                   onClick={() => this.setState({
-                                                       showTitle: `Show 25`,
-                                                       show: 25
-                                                   })} replace >Show 25</Dropdown.Item>
+                                        onClick={() => this.setState({
+                                            showTitle: `Show 25`,
+                                            show: 25
+                                        })} replace >Show 25</Dropdown.Item>
                                 </DropdownButton>
                             </div>
                         </div>
@@ -167,7 +167,7 @@ export default function ReviewComponent(){
                     </div>
                 </div>
             </div>
-            <SubmitForm idBook={this.props.idBook}/>
+            <SubmitForm idBook={this.props.idBook} />
         </div>
     )
 }
