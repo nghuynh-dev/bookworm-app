@@ -4,7 +4,8 @@ namespace App\Traits;
 
 use Illuminate\Support\Str;
 
-trait Filterable {
+trait Filterable
+{
     /**
      * add filtering.
      *

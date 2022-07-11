@@ -9,28 +9,24 @@ use Illuminate\Http\Request;
 class BookController extends Controller
 {
     protected $bookRepository;
-    public function __construct(BookRepository $bookRepository){
+    public function __construct(BookRepository $bookRepository)
+    {
         $this->bookRepository = $bookRepository;
     }
-    public function index(){
+    public function index()
+    {
         return $this->bookRepository->getBooksAll();
     }
-//    public function getBooksSale(){
-//        return $this->bookRepository->getBooksSale();
-//    }
-//    public function getBooksRecommend(){
-//        return $this->bookRepository->getBooksRecommend();
-//    }
-//    public function getBooksPopular(){
-//        return $this->bookRepository->getBooksPopular();
-//    }
-    public function getBookDetail($id){
+    public function getBookDetail($id)
+    {
         return $this->bookRepository->getBookDetail($id);
     }
-    public function getBookFilter(Request $request){
+    public function getBookFilter(Request $request)
+    {
         return $this->bookRepository->getBookFilter($request);
     }
-    public function getType(){
+    public function getType()
+    {
         return $this->bookRepository->getType();
     }
 }

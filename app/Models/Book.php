@@ -44,7 +44,8 @@ class Book extends Model
         return $this->hasMany(Review::class);
     }
 
-    public function scopeDetail($query){
+    public function scopeDetail($query)
+    {
         return $query
             ->leftJoin('review', 'review.book_id', 'book.id')
             ->leftJoin('discount', 'discount.book_id', 'book.id')
@@ -63,7 +64,8 @@ class Book extends Model
             );
     }
     //sale by sub price
-    public function sortSale($query){
+    public function sortSale($query)
+    {
         return $query
             ->orderByRaw('CASE
                     WHEN (discount_end_date IS NULL AND DATE(NOW()) >= discount_start_date) THEN book_price - discount_price
@@ -72,7 +74,8 @@ class Book extends Model
                     END DESC');
     }
     // average rating star and lowest final price
-    public function sortRecommend($query){
+    public function sortRecommend($query)
+    {
         return $query
             ->havingRaw("COALESCE(AVG(CAST(rating_start as INT)), 0) >= 0")
             ->orderByRaw("COALESCE(AVG(cast(rating_start as INT)), 0) desc")
@@ -83,7 +86,8 @@ class Book extends Model
                     END ASC');
     }
     //most review and lowest final price
-    public function sortPopular($query){
+    public function sortPopular($query)
+    {
         return $query
             ->orderByRaw('COUNT(CAST(review.rating_start as INT)) DESC')
             ->orderByRaw('CASE
@@ -92,7 +96,8 @@ class Book extends Model
                     ELSE book_price
                     END ASC');
     }
-    public function sortDesc($query){
+    public function sortDesc($query)
+    {
         return $query
             ->orderByRaw('CASE
                     WHEN (discount_end_date IS NULL AND DATE(NOW()) >= discount_start_date) THEN discount_price
@@ -100,7 +105,8 @@ class Book extends Model
                     ELSE book_price
                     END DESC');
     }
-    public function sortAsc($query){
+    public function sortAsc($query)
+    {
         return $query
             ->orderByRaw('CASE
                     WHEN (discount_end_date IS NULL AND DATE(NOW()) >= discount_start_date) THEN discount_price
@@ -108,14 +114,16 @@ class Book extends Model
                     ELSE book_price
                     END ASC');
     }
-    public function filterCategory($query, $value){
+    public function filterCategory($query, $value)
+    {
         return $query->where('book.category_id', $value);
     }
-    public function filterAuthor($query, $value){
+    public function filterAuthor($query, $value)
+    {
         return $query->where('book.author_id', $value);
     }
-    //bug
-    public function filterStar($query, $value){
+    public function filterStar($query, $value)
+    {
         if (is_numeric($value)) {
             return $query
                 ->havingRaw("COALESCE(AVG(CAST(rating_start as INT)), 0) >= ?", [$value]);

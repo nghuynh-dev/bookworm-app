@@ -38,7 +38,7 @@ class UpdateBookRequest extends FormRequest
     protected function failedValidation(Validator $validator)
     {
         $response = new Response([
-            'errors'=> $validator->errors(),
+            'errors' => $validator->errors(),
         ], Response::HTTP_UNPROCESSABLE_ENTITY);
         throw (new ValidationException($validator, $response));
     }

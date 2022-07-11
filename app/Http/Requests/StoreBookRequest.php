@@ -36,13 +36,4 @@ class StoreBookRequest extends FormRequest
             'book_cover_photo' => 'required',
         ];
     }
-
-//    protected function failedValidation(Validator $validator)
-//    {
-//        $response = new Response([
-//            'errors'=> $validator->errors(),
-//        ], Response::HTTP_UNPROCESSABLE_ENTITY);
-//        throw (new ValidationException($validator, $response));
-//    }
-
 }

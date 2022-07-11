@@ -12,9 +12,7 @@ class Discount extends Model
     public $timestamps = false;
     protected $table = 'discount';
 
-    protected $fillable =[
-
-    ];
+    protected $fillable = [];
     public function book()
     {
         return $this->belongsTo(Book::class);
