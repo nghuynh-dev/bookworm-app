@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
     "/js/app.js": "/js/app.js?id=2fe0c0dc8e324a03490600a05e5bd8ef",
+=======
+    "/js/app.js": "/js/app.js?id=336d827a3d3f49a9a57b73cd4c948940",
+>>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
     "/css/app.css": "/css/app.css?id=d5364e0d4c0174e4a30cea9a03af036d",
     "/assets/bookcover/book1.jpg": "/assets/bookcover/book1.jpg?id=941997fda7002a6f752a5f8574bbbfd4",
     "/assets/bookcover/book10.jpg": "/assets/bookcover/book10.jpg?id=4e345d48335c31ef7c44df8374dc5a9e",

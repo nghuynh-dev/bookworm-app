@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import React, { useEffect } from 'react';
 import { Accordion, Card, Dropdown } from 'react-bootstrap';
 import { useSelector } from "react-redux";
 
 export default function SidebarComponent(props) {
     const { handleOnClickCate, handleOnClickStar, handleOnClickAuthor } = props
+=======
+import React, {useEffect} from 'react';
+import { Accordion,Card,Dropdown } from 'react-bootstrap';
+import {useSelector} from "react-redux";
+
+export default function SidebarComponent(props){
+    const {handleOnClickCate, handleOnClickStar, handleOnClickAuthor} = props
+>>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
     const authors = useSelector(state => state.shopReducer.authorReducer)
     const categories = useSelector(state => state.shopReducer.categoryReducer)
     const stars = useSelector(state => state.shopReducer.starReducer)
@@ -26,9 +35,15 @@ export default function SidebarComponent(props) {
                                 <Card.Body className="px-0 my-1">
                                     {categories.map((item, index) => {
 
+<<<<<<< HEAD
                                         return (
                                             <Dropdown.Item eventKey={index} key={item.id} data-name={item.category_name.replace(/(\b[a-z](?!\s))/g, function (x) { return x.toUpperCase() })} data-id={item.id} onClick={e => handleOnClickCate(e)}>
                                                 {item.category_name.replace(/(\b[a-z](?!\s))/g, function (x) { return x.toUpperCase() })}
+=======
+                                        return(
+                                            <Dropdown.Item eventKey={index} key={item.id} data-name={item.category_name.replace(/(\b[a-z](?!\s))/g,function(x){return x.toUpperCase()})} data-id={item.id} onClick={e => handleOnClickCate(e)}>
+                                                {item.category_name.replace(/(\b[a-z](?!\s))/g,function(x){return x.toUpperCase()})}
+>>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
                                             </Dropdown.Item>
                                         )
                                     })}
@@ -45,7 +60,11 @@ export default function SidebarComponent(props) {
                             <Accordion.Collapse eventKey="1">
                                 <Card.Body className="px-0 my-1">
                                     {authors.map((item, index) => {
+<<<<<<< HEAD
                                         return (
+=======
+                                        return(
+>>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
                                             <Dropdown.Item key={index} data-name={item.author_name} data-id={item.id} onClick={e => handleOnClickAuthor(e)}>
                                                 {item.author_name}
                                             </Dropdown.Item>
@@ -64,7 +83,11 @@ export default function SidebarComponent(props) {
                             <Accordion.Collapse eventKey="2">
                                 <Card.Body className="px-0 my-1">
                                     {stars.map((item, index) => {
+<<<<<<< HEAD
                                         return (
+=======
+                                        return(
+>>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
                                             <Dropdown.Item key={index} data-id={item} onClick={e => handleOnClickStar(e)}>
                                                 {item} Star
                                             </Dropdown.Item>

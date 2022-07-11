@@ -1,9 +1,17 @@
 import React from 'react';
+<<<<<<< HEAD
 import { useSelector } from "react-redux";
 import { chunk } from "lodash";
 import { Carousel } from 'react-bootstrap';
 import BookCardComponent from "../../bookcard";
 import { Link } from "react-router-dom";
+=======
+import { useSelector} from "react-redux";
+import {chunk} from "lodash";
+import {Carousel} from 'react-bootstrap';
+import BookCardComponent from "../../bookcard";
+import {Link} from "react-router-dom";
+>>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
 
 export default function BannerComponent() {
     const books = useSelector(state => state.bookReducer.homeBannerList);
@@ -13,11 +21,17 @@ export default function BannerComponent() {
         prevIcon: <i className="fa fa-caret-left"></i>,
         bannerBook: []
     }
+<<<<<<< HEAD
 
 
     const dataBindingGrid = () => {
         const rows = chunk(books, 4);
         return rows.map((item, index) => {
+=======
+    const dataBindingGrid = () => {
+        const rows = chunk(books, 4);
+        return rows.map((item,index) =>{
+>>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
             return (
                 <Carousel.Item key={index}>
                     <div className="mx-6 mt-4">

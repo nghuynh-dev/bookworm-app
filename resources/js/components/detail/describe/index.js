@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
@@ -9,6 +10,22 @@ export default function DescribeComponent(props) {
         let amount = quantity
         if (quantity > 1) {
             amount = quantity - 1
+=======
+import {useSelector} from "react-redux";
+import {useState} from "react";
+
+export default function DescribeComponent(props){
+    const { handleAddToCart } = props
+    const book = useSelector(state => state.shopReducer.bookIdReducer)
+    const [quantity, setQuantity] = useState(1)
+    let bookCart;
+    let show;
+    let message;
+    const handleSubQuantity = () => {
+        let amount = quantity
+        if (quantity > 1) {
+            amount = quantity -1
+>>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
         }
         setQuantity(amount)
     }
@@ -19,7 +36,11 @@ export default function DescribeComponent(props) {
         }
         setQuantity(amount)
     }
+<<<<<<< HEAD
     return (
+=======
+    return(
+>>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
         <>
             {book ? (
                 <div className="row detail-book">

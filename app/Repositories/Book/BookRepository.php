@@ -32,6 +32,7 @@ class BookRepository
         $reviews = Book::findOrFail($id)->reviews()->paginate(4);
         $reviews = new ReviewBookCollection($reviews);
 
+<<<<<<< HEAD
         //        $group = Review::detail($id)->get();
 
         return response()->json([
@@ -39,6 +40,15 @@ class BookRepository
             //            'count', $group,
             "reviews" => $reviews
         ], 200);
+=======
+//        $group = Review::detail($id)->get();
+
+        return response()->json([
+            "books" => $book,
+//            'count', $group,
+            "reviews" => $reviews
+        ],200);
+>>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
     }
     public function getBookFilter(Request $request)
     {
