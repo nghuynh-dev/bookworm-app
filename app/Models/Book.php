@@ -114,7 +114,6 @@ class Book extends Model
     public function filterAuthor($query, $value){
         return $query->where('book.author_id', $value);
     }
-    //bug
     public function filterStar($query, $value){
         if (is_numeric($value)) {
             return $query
