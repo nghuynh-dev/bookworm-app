@@ -20,15 +20,17 @@ class BookResource extends JsonResource
 
     public function toArray($request)
     {
-        $final_price = $this->discount_price;
         $sub_price = round($this->book_price - $this->discount_price, 2);
         if (!is_null($this->discount_end_date)) {
-            if (!(date('Y-m-d') >= $this->discount_start_date and date('Y-m-d') <= $this->discount_end_date)) {
-                $sub_price = $this->book_price - $this->discount_price;
+            if ( !(date('Y-m-d') >= $this->discount_start_date and date('Y-m-d') <= $this->discount_end_date) ) {
+                $this->discount_price = $this->book_price;
+                $sub_price = 0;
             }
-        } else {
-            if (!(date('Y-m-d') >= $this->discount_start_date) or is_null($this->discount_start_date)) {
-                $sub_price = $this->book_price - $this->discount_price;
+        }
+        else {
+            if ( !(date('Y-m-d') >= $this->discount_start_date) or is_null($this->discount_start_date) ) {
+                $this->discount_price = $this->book_price;
+                $sub_price = 0;
             }
         }
         return [
@@ -38,12 +40,12 @@ class BookResource extends JsonResource
             'book_price' => $this->book_price,
             'book_cover_photo' => $this->book_cover_photo,
             'sub_price' => $sub_price,
-            'final_price' => $final_price,
             'category' => new CategoryResource($this->category),
             'author' => new AuthorResource($this->author),
             'discount_price' => $this->discount_price,
             'date_start' => $this->discount_start_date,
             'date_end' => $this->discount_end_date,
+            'final_price' => $this->discount_price,
         ];
 
     }
