@@ -1,5 +1,5 @@
 import React from "react";
-import {Carousel, ToggleButton, ToggleButtonGroup} from "react-bootstrap";
+import { ToggleButton, ToggleButtonGroup} from "react-bootstrap";
 import {useSelector} from "react-redux";
 import BookCardComponent from "../../bookcard";
 
@@ -7,14 +7,12 @@ export default function FeatureComponent(props){
     const {handleOnChange} = props
 
     const featureBook = useSelector(state => state.bookReducer.homeFeatureList);
-    console.log('ArrBook',featureBook)
     const dataBindingGrid = () => {
         return(
             <div className="row" >
                 <BookCardComponent attribute={featureBook}/>
             </div>
         )
-
     }
     return(
         <div className="wrapper">

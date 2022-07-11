@@ -10,14 +10,16 @@ export default function BookCardComponent(props) {
         let original = "";
         if (book.sub_price != 0) {
             original = (
-                <><span>
-                    <del>
-                        ${book.book_price}
-                    </del>
-                </span>
+                <>
+                    <span>
+                        <del>${book.book_price}</del>
+                    </span>
                     <small className="text-muted">
-                        <span className="h2 my-0 pl-2"><b>${book.final_price}</b></span>
-                    </small></>
+                        <span className="h2 my-0 pl-2">
+                            <b>${book.final_price}</b>
+                        </span>
+                    </small>
+                </>
             )
         }
         else {
