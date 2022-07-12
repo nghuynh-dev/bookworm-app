@@ -122,12 +122,8 @@ class Book extends Model
     {
         return $query->where('book.author_id', $value);
     }
-<<<<<<< HEAD
     public function filterStar($query, $value)
     {
-=======
-    public function filterStar($query, $value){
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
         if (is_numeric($value)) {
             return $query
                 ->havingRaw("COALESCE(AVG(CAST(rating_start as INT)), 0) >= ?", [$value]);

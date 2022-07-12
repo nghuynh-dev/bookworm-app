@@ -1,11 +1,6 @@
 import React from "react";
-<<<<<<< HEAD
 import { ToggleButton, ToggleButtonGroup } from "react-bootstrap";
 import { useSelector } from "react-redux";
-=======
-import { ToggleButton, ToggleButtonGroup} from "react-bootstrap";
-import {useSelector} from "react-redux";
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
 import BookCardComponent from "../../bookcard";
 
 export default function FeatureComponent(props) {

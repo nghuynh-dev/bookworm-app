@@ -3,11 +3,7 @@ import ErrorComponent from "../components/error";
 import HeaderComponent from "../components/header";
 import FooterComponent from "../components/footer";
 
-<<<<<<< HEAD
 import { Home, Detail, Shop, About } from "./index";
-=======
-import { Home, Detail, Shop, About} from "./index";
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
 import Cart from "./cart";
 
 function App() {

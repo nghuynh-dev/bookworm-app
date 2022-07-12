@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -18,15 +17,6 @@ export default function HeaderComponent() {
         }
         dispatch(updateQueryParams(query_params));
     }
-=======
-import React, {useEffect, useState} from 'react';
-import {Navbar, Nav} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import {useSelector} from "react-redux";
-
-export default function HeaderComponent() {
-    const carts = useSelector(state => state.cartReducer.cartListReducer)
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
     return (
         <header className="my-0">
             <Navbar collapseOnSelect expand="md" bg="light">
@@ -41,11 +31,7 @@ export default function HeaderComponent() {
                             Home
                         </Nav.Link>
                         <Nav.Link
-<<<<<<< HEAD
                             eventKey={'/shop'} as={Link} to='/shop' onClick={(e) => handleDefaultFilterBook(e)}>
-=======
-                            eventKey={'/shop'} as={Link} to='/shop'>
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
                             Shop
                         </Nav.Link>
                         <Nav.Link eventKey={'/about'} as={Link} to="/about">

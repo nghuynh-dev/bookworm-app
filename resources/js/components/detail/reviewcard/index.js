@@ -1,25 +1,14 @@
-<<<<<<< HEAD
 import { useSelector } from "react-redux";
 import { DropdownButton, Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ButtonGroup } from "reactstrap";
-=======
-import {useSelector} from "react-redux";
-import {DropdownButton, Dropdown} from "react-bootstrap";
-import {Link} from "react-router-dom";
-import {ButtonGroup} from "reactstrap";
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
 
 export default function ReviewCardComponent() {
     const book = useSelector(state => state.shopReducer.bookIdReducer)
     console.log(book.reviews)
     const dataReview = book.reviews.data
     let handleAvg = book.count[0].avg_star
-<<<<<<< HEAD
     if (handleAvg == null) {
-=======
-    if(handleAvg == null) {
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
         handleAvg = 0
     }
     return (
@@ -79,20 +68,12 @@ export default function ReviewCardComponent() {
                     <div className="list-card-review">
                         {
                             dataReview.map((item, index) => {
-<<<<<<< HEAD
                                 return (
-=======
-                                return(
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
                                     <div className="card-review my-4" key={index}>
                                         <div className="review-title">
                                             <span className="review-content-title">
                                                 <span className="h5"><b>{item.review_title}</b></span>
-<<<<<<< HEAD
                                             </span>
-=======
-                                             </span>
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
                                             <span className="review-star-title">
                                                 <span className='mx-2'>|</span> {item.rating_start} star
                                             </span>
@@ -113,5 +94,5 @@ export default function ReviewCardComponent() {
                 </div>
             </div>
         </div>
-        )
+    )
 }

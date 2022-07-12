@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 export default function ShopTitleComponent(props) {
-=======
-export default function ShopTitleComponent(props){
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
     const attribute = props.attribute;
     return (
         <div className="main-title mx-5">

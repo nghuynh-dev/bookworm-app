@@ -7,19 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
-<<<<<<< HEAD
 class OrderRepository
 {
     public function store(Request $request)
     {
         if ($request->method('POST')) {
-=======
-class OrderRepository{
-    public function store(Request $request)
-    {
-        if($request-> method('POST'))
-        {
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
             try {
                 DB::transaction(
                     function () {
@@ -59,7 +51,6 @@ class OrderRepository{
                             ]);
                             $id_item++;
                         };
-<<<<<<< HEAD
                     },
                     4
                 );
@@ -67,22 +58,10 @@ class OrderRepository{
                     'message' => 'Order created successfully'
                 ], ResponseAlias::HTTP_CREATED);
             } catch (\Throwable $th) {
-=======
-                    }, 4);
-                return response()->json([
-                    'message' => 'Order created successfully'
-                ], ResponseAlias::HTTP_CREATED);
-            }
-            catch (\Throwable $th) {
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
                 return response()->json([
                     'error' => 'Server error',
                 ], ResponseAlias::HTTP_INTERNAL_SERVER_ERROR);
             }
-<<<<<<< HEAD
-=======
-
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
         }
     }
 }

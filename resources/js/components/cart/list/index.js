@@ -1,5 +1,4 @@
 import { Alert, Modal, Button } from 'react-bootstrap';
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import { isError, isNull } from "lodash";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,15 +6,6 @@ import { useEffect, useState } from "react";
 import { addQuantityCart, postCartToDb, subQuantityCart } from "../../../actions/cart.action";
 
 export default function CartListComponent() {
-=======
-import {Link} from "react-router-dom";
-import {isError, isNull} from "lodash";
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
-import {addQuantityCart, postCartToDb, subQuantityCart} from "../../../actions/cart.action";
-
-export default function CartListComponent(){
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
     const dataCarts = useSelector(state => state.cartReducer.cartListReducer)
     const messageAlert = useSelector(state => state.cartReducer.alertCart.message)
     const showAlert = useSelector(state => state.cartReducer.alertCart.show)
@@ -32,21 +22,12 @@ export default function CartListComponent(){
         let data = []
         data = dataCarts.map((cart) => {
             return {
-<<<<<<< HEAD
                 id: cart.id,
                 quantity: cart.quantity,
                 final_price: cart.final_price
             }
         })
         dispatch(postCartToDb({ book: data }))
-=======
-                id:cart.id,
-                quantity:cart.quantity,
-                final_price:cart.final_price
-            }
-        })
-        dispatch(postCartToDb({book: data}))
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
     }
 
     console.log(showAlert)
@@ -55,11 +36,7 @@ export default function CartListComponent(){
             if (isNull(cart.img) || (cart.img.length == 0)) {
                 cart.img = 'book5'
             }
-<<<<<<< HEAD
             return (
-=======
-            return(
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
                 <tr key={cart.id}>
                     <td className="book-title-cart pl-4 py-4">
                         <Link to={'/detail/' + cart.id} target="_blank">
@@ -88,25 +65,15 @@ export default function CartListComponent(){
                     <td>
                         <div className="quantity-item-cart">
                             <button type="button" className="btn btn-secondary"
-<<<<<<< HEAD
                                 id={'btn-sub-quantity-cart-' + cart.id}
                                 onClick={() => dispatch(subQuantityCart(cart.id))}
-=======
-                                    id={'btn-sub-quantity-cart-' + cart.id}
-                                    onClick={() => dispatch(subQuantityCart(cart.id))}
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
                             >
                                 <i className="fa fa-minus"></i>
                             </button>
                             <div className="quantity-number-cart" id={'quantity-cart-' + cart.id}>{cart.quantity}</div>
                             <button type="button" className="btn btn-secondary"
-<<<<<<< HEAD
                                 id={'btn-add-quantity-cart-' + cart.idBook}
                                 onClick={() => dispatch(addQuantityCart(cart.id))}
-=======
-                                    id={'btn-add-quantity-cart-' + cart.idBook}
-                                    onClick={() => dispatch(addQuantityCart(cart.id))}
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
                             >
                                 <i className="fa fa-plus"></i>
                             </button>
@@ -120,11 +87,7 @@ export default function CartListComponent(){
         })
     }
 
-<<<<<<< HEAD
     return (
-=======
-    return(
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
         <div className="mx-5 mb-4">
             <div className="row">
                 <div className="col-lg-8 col-md-8 col-sm-12 list-cart">
@@ -138,11 +101,7 @@ export default function CartListComponent(){
                             </tr>
                         </thead>
                         <tbody>
-<<<<<<< HEAD
                             {temp()}
-=======
-                        {temp()}
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
                         </tbody>
                     </table>
                 </div>
@@ -177,11 +136,7 @@ export default function CartListComponent(){
                             <Alert.Heading>Order Success</Alert.Heading>
                             Go back to <Alert.Link as={Link} to="/">Home Page</Alert.Link> after  seconds
                         </Alert>
-<<<<<<< HEAD
                     ) : <></>}
-=======
-                    ):<></>}
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
                     {/*{showError && !isNull(isError) ? (*/}
                     {/*    <Alert variant="warning" className="mt-5 text-center">*/}
                     {/*        <Alert.Heading>Order Failed</Alert.Heading>*/}

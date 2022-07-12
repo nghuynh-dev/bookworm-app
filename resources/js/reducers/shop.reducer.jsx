@@ -1,19 +1,11 @@
 import { shopConstants } from "../constants";
-<<<<<<< HEAD
 const { GET_AUTHOR, GET_SHOW, GET_CATEGORY, GET_STAR, GET_BOOK_DEFAULT, GET_BOOK_ID, UPDATE_FILTER_PARAMS, UPDATE_LAST_PAGINATION, UPDATE_CURRENT_PAGINATION } = shopConstants
-=======
-const { GET_AUTHOR, GET_SHOW, GET_CATEGORY, GET_STAR, GET_BOOK_DEFAULT, GET_BOOK_ID, UPDATE_FILTER_PARAMS } = shopConstants
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
 
 const initState = {
     filterParams: {
         sort: 'sale',
-<<<<<<< HEAD
         show: 5,
         page: 1,
-=======
-        show: 20,
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
         type: undefined,
         id: undefined
     },
@@ -21,7 +13,6 @@ const initState = {
     categoryReducer: [],
     starReducer: [],
     bookDefaultReducer: [],
-<<<<<<< HEAD
     paginate: {
         total: 0,
         nextUrl: null,
@@ -33,8 +24,6 @@ const initState = {
         lastPage: 0,
         currentPage: 1,
     },
-=======
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
     bookIdReducer: {
         book: {
             discount_price: "",
@@ -56,29 +45,17 @@ const initState = {
         reviews: {
             data: [
                 {
-<<<<<<< HEAD
                     review_title: "",
                     rating_start: "",
                     review_date: "",
                     review_details: "",
-=======
-                    review_title:"",
-                    rating_start:"",
-                    review_date:"",
-                    review_details:"",
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
                 }
             ]
         },
         count: [
             {
-<<<<<<< HEAD
                 avg_star: "",
                 count_star: "",
-=======
-                avg_star:"",
-                count_star:"",
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
             },
         ]
     },
@@ -119,7 +96,6 @@ const shopReducer = (state = initState, action) => {
                 starReducer: action.payload.data
             }
         case GET_BOOK_DEFAULT:
-<<<<<<< HEAD
             const data = action.payload.data
             const books = data.data
             const paginate = {
@@ -138,11 +114,6 @@ const shopReducer = (state = initState, action) => {
                 ...state,
                 bookDefaultReducer: books,
                 paginate: paginate,
-=======
-            return {
-                ...state,
-                bookDefaultReducer: action.payload.data
->>>>>>> d9685d60ef33f6005776fca24a3d3bf39cd54703
             }
         case GET_BOOK_ID:
             return {
