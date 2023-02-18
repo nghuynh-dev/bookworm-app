@@ -1,10 +1,8 @@
 import { bookConstants, exceptionConstants } from "../constants";
 import BookService from "../services/book.service";
-const { BAD_REQUEST, SUCCESS } = exceptionConstants
+const { SUCCESS } = exceptionConstants
 const { GET_BOOK_POPULAR, GET_BOOK_RECOMMEND, GET_BOOK_BANNER } = bookConstants
 
-// credentials books?id=plaplap,la
-// cái plaplapla là credentials
 export const getBookBanner = () => {
     return async function (dispatch) {
         const response = await BookService.getBookBanner()

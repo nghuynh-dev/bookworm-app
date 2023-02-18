@@ -1,7 +1,7 @@
 import { exceptionConstants, shopConstants } from "../constants";
 import ShopService from "../services/shop.service";
-const { BAD_REQUEST, SUCCESS } = exceptionConstants
-const { GET_AUTHOR, GET_SHOW, GET_BOOK_ID, GET_CATEGORY, GET_STAR, GET_BOOK_DEFAULT, UPDATE_FILTER_PARAMS, UPDATE_LAST_PAGINATION, UPDATE_CURRENT_PAGINATION } = shopConstants
+const { SUCCESS } = exceptionConstants
+const { GET_AUTHOR, GET_BOOK_ID, GET_CATEGORY, GET_STAR, GET_BOOK_DEFAULT, UPDATE_FILTER_PARAMS, UPDATE_LAST_PAGINATION, UPDATE_CURRENT_PAGINATION } = shopConstants
 
 export const updateQueryParams = (data) => {
     return async function (dispatch) {

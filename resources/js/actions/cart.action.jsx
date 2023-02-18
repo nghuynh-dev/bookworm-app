@@ -1,8 +1,7 @@
 import { exceptionConstants, cartConstants } from "../constants";
-import BookService from "../services/book.service";
 import CartService from "../services/cart.service";
 
-const { BAD_REQUEST, SUCCESS, CREATED } = exceptionConstants
+const { CREATED } = exceptionConstants
 const { ADD_TO_CART, POST_CART_TO_DB, ADD_QUANTITY_CART, SUB_QUANTITY_CART } = cartConstants
 
 export const addToCart = (data) => {
@@ -56,5 +55,3 @@ export const postCartToDb = (data) => {
         }
     }
 }
-
-
