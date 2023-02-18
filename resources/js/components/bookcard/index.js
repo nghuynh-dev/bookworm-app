@@ -7,9 +7,8 @@ export default function BookCardComponent(props) {
     const books = props.attribute;
 
     const checkFinalPrice = (book) => {
-        let original = "";
-        if (book.sub_price != 0) {
-            original = (
+        if (book.sub_price !== 0) {
+            return (
                 <>
                     <span>
                         <del>${book.book_price}</del>
@@ -20,29 +19,21 @@ export default function BookCardComponent(props) {
                         </span>
                     </small>
                 </>
-            )
+            );
         }
-        else {
-            original = (
-                <span>
-                    ${book.book_price}
-                </span>
-            )
-        }
-        return original;
-    }
+        return <span>${book.book_price}</span>;
+    };
 
     return (
         <>
             {books.map(book => {
-                if (isNull(book.book_cover_photo) || (book.book_cover_photo.length == 0)) {
-                    book.book_cover_photo = 'book5';
-                }
+                const bookCoverPhoto = isNull(book.book_cover_photo) || (book.book_cover_photo.length === 0) ? 'book5' : book.book_cover_photo;
+
                 return (
-                    <div className='col-lg-3 col-xl-3 col-md-6 col-sm-12 mb-4' key={"book_" + book.book_id}>
+                    <div className='col-lg-3 col-xl-3 col-md-6 col-sm-12 mb-4' key={`book_${book.book_id}`}>
                         <div className="card h-100" >
-                            <Link to={'/detail/' + book.book_id}>
-                                <img className='card-img-top' src={'/assets/bookcover/' + book.book_cover_photo + '.jpg'} alt={book.book_cover_photo} />
+                            <Link to={`/detail/${book.book_id}`}>
+                                <img className='card-img-top' src={`/assets/bookcover/${bookCoverPhoto}.jpg`} alt={bookCoverPhoto} />
                             </Link>
                             <div className="card-body">
                                 <h5 className="card-title">{book.book_title}</h5>
@@ -54,8 +45,7 @@ export default function BookCardComponent(props) {
                         </div>
                     </div>
                 )
-            }
-            )}
+            })}
         </>
     );
 }
