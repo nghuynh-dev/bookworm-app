@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
@@ -7,7 +7,7 @@ import { updateQueryParams } from '../../actions';
 export default function HeaderComponent() {
     const carts = useSelector(state => state.cartReducer.cartListReducer)
     const dispatch = useDispatch();
-    const handleDefaultFilterBook = (e) => {
+    const handleDefaultFilterBook = () => {
         const query_params = {
             sort: 'sale',
             show: 5,
