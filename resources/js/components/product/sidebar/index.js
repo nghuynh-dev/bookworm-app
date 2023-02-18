@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
 import { Accordion, Card, Dropdown } from 'react-bootstrap';
 import { useSelector } from "react-redux";
 
-export default function SidebarComponent(props) {
-    const { handleOnClickCate, handleOnClickStar, handleOnClickAuthor } = props
-    const authors = useSelector(state => state.shopReducer.authorReducer)
-    const categories = useSelector(state => state.shopReducer.categoryReducer)
-    const stars = useSelector(state => state.shopReducer.starReducer)
+export default function SidebarComponent({ handleOnClickCate, handleOnClickStar, handleOnClickAuthor }) {
+    const authors = useSelector(state => state.shopReducer.authorReducer);
+    const categories = useSelector(state => state.shopReducer.categoryReducer);
+    const stars = useSelector(state => state.shopReducer.starReducer);
 
     return (
         <div className="col-lg-2 col-md-3 col-sm-12 px-0 filter-left-sidebar">
@@ -25,7 +23,6 @@ export default function SidebarComponent(props) {
                             <Accordion.Collapse eventKey="0">
                                 <Card.Body className="px-0 my-1">
                                     {categories.map((item, index) => {
-
                                         return (
                                             <Dropdown.Item eventKey={index} key={item.id} data-name={item.category_name.replace(/(\b[a-z](?!\s))/g, function (x) { return x.toUpperCase() })} data-id={item.id} onClick={e => handleOnClickCate(e)}>
                                                 {item.category_name.replace(/(\b[a-z](?!\s))/g, function (x) { return x.toUpperCase() })}
@@ -41,7 +38,6 @@ export default function SidebarComponent(props) {
                             <Accordion.Toggle as={Card.Header} eventKey="1">
                                 <h4>Author</h4>
                             </Accordion.Toggle>
-
                             <Accordion.Collapse eventKey="1">
                                 <Card.Body className="px-0 my-1">
                                     {authors.map((item, index) => {
@@ -60,7 +56,6 @@ export default function SidebarComponent(props) {
                             <Accordion.Toggle as={Card.Header} eventKey="2">
                                 <h4>Rating Review</h4>
                             </Accordion.Toggle>
-
                             <Accordion.Collapse eventKey="2">
                                 <Card.Body className="px-0 my-1">
                                     {stars.map((item, index) => {
@@ -77,5 +72,5 @@ export default function SidebarComponent(props) {
                 </div>
             </div>
         </div>
-    )
+    );
 }

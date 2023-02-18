@@ -451,35 +451,35 @@ div.wrapper-shop {
     }
     .pagination {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        max-width: 400px;
+        margin: 0 auto;
     }
 }
-
-// PAGINATION
 .pagination {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    cursor: pointer;
+    li {
+        display: flex;
+        align-items: flex-end;
+        height: 36px;
+    }
 }
-
-.pagination a {
-    padding: 13px;
-    border-radius: 1px;
-    border: 1px solid #7a7a7c;
-    color: #aa9191;
+.pagination__link--disabled {
+    a {
+        color: rgb(198, 197, 202) !important;
+        cursor: no-drop;
+    }
 }
-
-.pagination__link {
-    font-weight: bold;
+.pagination__link--active {
+    a {
+        font-size: 18px;
+        font-weight: bold;
+        color: black !important;
+    }
 }
-
-.pagination__link--active a {
-    color: rgb(243, 243, 243) !important;
-    background: #6c7ac9;
-}
-
-.pagination__link--disabled a {
-    color: rgb(198, 197, 202);
-    border: 1px solid rgb(198, 197, 202);
+.previous, .next {
+    a {
+        font-weight: bold;
+        text-decoration: none;
+        color: #20c997;
+    }
 }
