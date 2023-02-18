@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 export default function ReviewComponent() {
     return (
-        // Review List
         <div className="row review-list">
             <div className="col-lg-8 col-md-8 col-sm-12">
                 <div className="border px-5 my-4 pt-5">

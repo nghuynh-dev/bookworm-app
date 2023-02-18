@@ -10,18 +10,18 @@ const bookReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_BOOK_BANNER:
             return {
-                ...state, //copy state hien tai
-                homeBannerList: action.payload.data//update
+                ...state,
+                homeBannerList: action.payload.data
             }
         case GET_BOOK_RECOMMEND:
             return {
                 ...state,
-                homeFeatureList: action.payload.data //update
+                homeFeatureList: action.payload.data
             }
         case GET_BOOK_POPULAR:
             return {
                 ...state,
-                homeFeatureList: action.payload.data //update
+                homeFeatureList: action.payload.data
             }
         default:
             return state

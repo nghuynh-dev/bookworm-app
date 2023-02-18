@@ -5,7 +5,6 @@ import { ButtonGroup } from "reactstrap";
 
 export default function ReviewCardComponent() {
     const book = useSelector(state => state.shopReducer.bookIdReducer)
-    console.log(book.reviews)
     const dataReview = book.reviews.data
     let handleAvg = book.count[0].avg_star
     if (handleAvg == null) {

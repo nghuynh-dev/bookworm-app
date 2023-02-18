@@ -1,15 +1,21 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { getAuthor, getBookDefault, getCategory, getShow, getStar, updateQueryParams, updateLastPage, updateCurrentPage } from "../actions/shop.action";
+import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import {
+    getCategory,
+    getAuthor,
+    getStar,
+    getBookDefault,
+    updateQueryParams,
+    updateCurrentPage,
+    updateLastPage,
+} from "../actions/shop.action";
 import ShopTitleComponent from "../components/product/title";
 import SidebarComponent from "../components/product/sidebar";
 import FilterComponent from "../components/product/filter";
 
-function Shop(props) {
+function Shop() {
     const dispatch = useDispatch();
     useEffect(() => {
-        // const query_string = 'show=20&sort=sale'
-        // dispatch(getShow(query_string))
         dispatch(getCategory());
         dispatch(getAuthor());
         dispatch(getStar());
@@ -18,8 +24,6 @@ function Shop(props) {
     const filter = useSelector(state => state.shopReducer.filterParams)
 
     useEffect(() => {
-        // const params = new URLSearchParams(window.location.search)
-        // let page = params.get('page')
         let query_string = `sort=${filter.sort}&show=${filter.show}&page=${filter.page}`
         if (filter.type !== undefined && filter.id !== undefined) {
             query_string = `sort=${filter.sort}&${filter.type}=${filter.id}&show=${filter.show}&page=${filter.page}`

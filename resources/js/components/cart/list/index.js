@@ -30,7 +30,6 @@ export default function CartListComponent() {
         dispatch(postCartToDb({ book: data }))
     }
 
-    console.log(showAlert)
     const temp = () => {
         return dataCarts.map((cart) => {
             if (isNull(cart.img) || (cart.img.length == 0)) {

@@ -8,15 +8,16 @@ import { useEffect } from "react";
 import { addToCart } from "../actions/cart.action";
 
 export default function Detail() {
-    const { id } = useParams()
+    const { id } = useParams();
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(getBookById(id));
-    }, [])
+    }, [id]);
+
     const handleAddToCart = (e) => {
-        const book = JSON.parse(e.target.dataset.book).book
-        const quantity = e.target.dataset.quantity
-        // console.log(book)
+        const book = JSON.parse(e.target.dataset.book).book;
+        const quantity = e.target.dataset.quantity;
 
         const data = {
             id: book.book_id,
@@ -26,10 +27,10 @@ export default function Detail() {
             final_price: book.final_price,
             book_price: book.book_price,
             quantity: parseInt(quantity)
+        };
 
-        }
-        dispatch(addToCart(data))
-    }
+        dispatch(addToCart(data));
+    };
 
     return (
         <div className="wrapper-detail">
@@ -39,5 +40,5 @@ export default function Detail() {
                 <ReviewCardComponent />
             </div>
         </div>
-    )
+    );
 }

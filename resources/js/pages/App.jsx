@@ -11,21 +11,11 @@ function App() {
         <Router>
             <HeaderComponent />
             <Switch>
-                <Route exact path="/">
-                    <Home />
-                </Route>
-                <Route exact path="/shop">
-                    <Shop />
-                </Route>
-                <Route exact path="/about">
-                    <About />
-                </Route>
-                <Route exact path="/detail/:id">
-                    <Detail />
-                </Route>
-                <Route exact path="/cart">
-                    <Cart />
-                </Route>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/shop" component={Shop} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/detail/:id" component={Detail} />
+                <Route exact path="/cart" component={Cart} />
                 <Route path='/error' component={ErrorComponent} />
                 <Redirect from='*' to='/error' />
             </Switch>

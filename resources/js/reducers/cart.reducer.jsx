@@ -46,14 +46,11 @@ const cartReducer = (state = initCart, action) => {
                 localStorage.setItem(CART_STORAGE, JSON.stringify(carts))
             }
             else {
-                // console.log('ton tai')
                 carts.map((item) => {
                     if (item.id === book.id) {
-                        // console.log('check')
                         item.quantity += book.quantity
                     }
                 })
-                // console.log(carts)
                 localStorage.setItem(CART_STORAGE, JSON.stringify(carts))
             }
 
@@ -80,14 +77,12 @@ const cartReducer = (state = initCart, action) => {
         case SUB_QUANTITY_CART:
             let cartsSs = JSON.parse(localStorage.getItem(CART_STORAGE))
             cartsSs.map((cart, index) => {
-                // console.log(cartsSs)
                 if (cart.id === action.payload.data) {
                     if (cart.quantity >= 1) {
                         cart.quantity -= 1
                     }
                     if (cart.quantity == 0) {
                         cartsSs.splice(index, 1)
-                        // console.log(cartsSs)
                     }
                 }
             })

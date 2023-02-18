@@ -6,21 +6,27 @@ import FeatureComponent from "../components/home/feature";
 
 export default function Home() {
     const dispatch = useDispatch();
+
+    const getRecommend = () => dispatch(getBookRecommend());
+    const getPopular = () => dispatch(getBookPopular());
+
     useEffect(() => {
         dispatch(getBookBanner());
-        dispatch(getBookRecommend());
-    }, [])
+        getRecommend();
+    }, []);
 
     const handleOnChangeButton = (e) => {
-        if (e === 'recommend') dispatch(getBookRecommend());
-        else dispatch(getBookPopular());
-    }
+        if (e === 'recommend') {
+            getRecommend();
+        } else {
+            getPopular();
+        }
+    };
+
     return (
         <>
             <BannerComponent />
-            <FeatureComponent handleOnChange={(e) => handleOnChangeButton(e)} />
+            <FeatureComponent handleOnChange={handleOnChangeButton} />
         </>
     );
 }
-
-
