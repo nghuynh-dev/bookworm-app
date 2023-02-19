@@ -21,6 +21,12 @@
 
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie"
+        "SESSION_DRIVER": "cookie",
+
+        "APP_KEY": "base64:SfjKgxPuF3PejINbFYegYu2HnXC1Ruhet+3WekUH3Fc=",
+        "DB_HOST": "localhost",
+        "DB_DATABASE": "bookworm_app",
+        "DB_USERNAME": "postgres",
+        "DB_PASSWORD": "123"
     }
 }
